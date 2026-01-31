@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOSC • Carreiras</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0d14;
+  --card:rgba(255,255,255,.06);
+  --text:#ffffff;
+  --sub:#a9afc3;
+  --accent:#4f8cff;
+  --accent2:#7aa2ff;
+  --glass:blur(20px);
+  --radius:22px;
+  --shadow:0 40px 120px rgba(0,0,0,.45);
+}
+
+.light{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#0b0d14;
+  --sub:#555;
+  --shadow:0 40px 120px rgba(0,0,0,.15);
+}
+
+*{
+  box-sizing:border-box;
+  font-family:Inter,system-ui;
+}
+
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  transition:.5s ease;
+}
+
+body{
+  min-height:100vh;
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:80px;
+  padding:0 50px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  backdrop-filter:blur(20px);
+  background:rgba(10,12,20,.55);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  z-index:100;
+}
+
+.light header{
+  background:rgba(255,255,255,.75);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+header strong{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+
+.toggle{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:14px;
+  color:var(--sub);
+  cursor:pointer;
+  user-select:none;
+  transition:.3s;
+}
+
+.toggle:hover{
+  color:var(--text);
+}
+
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:140px 40px 80px;
+}
+
+section{
+  display:none;
+  animation:sectionIn .7s cubic-bezier(.4,0,.2,1);
+}
+
+section.active{
+  display:block;
+}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:60px;
+  backdrop-filter:var(--glass);
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.light .card{
+  border:1px solid rgba(0,0,0,.06);
+}
+
+h1{
+  font-size:clamp(34px,4vw,46px);
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+p{
+  font-size:17px;
+  color:var(--sub);
+  line-height:1.7;
+}
+
+button{
+  padding:16px 34px;
+  border-radius:999px;
+  border:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.35s cubic-bezier(.4,0,.2,1);
+}
+
+button:hover{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 20px 50px rgba(79,140,255,.45);
+}
+
+form{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:35px;
+}
+
+input,textarea{
+  padding:16px 18px;
+  border-radius:16px;
+  border:none;
+  background:rgba(255,255,255,.08);
+  color:var(--text);
+  font-size:15px;
+  outline:none;
+  transition:.3s;
+}
+
+.light input,
+.light textarea{
+  background:#f0f2f7;
+}
+
+input:focus,
+textarea:focus{
+  transform:scale(1.02);
+  box-shadow:0 0 0 2px rgba(79,140,255,.35);
+}
+
+textarea{
+  grid-column:1/3;
+  resize:none;
+  height:140px;
+}
+
+.full{
+  grid-column:1/3;
+}
+
+.status{
+  margin-top:26px;
+  padding:22px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  font-size:15px;
+  animation:fadeUp .7s ease;
+}
+
+.light .status{
+  background:#f0f2f7;
+}
+
+@keyframes sectionIn{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <strong>MOSC</strong>
+  <div class="toggle" id="toggleTheme">🌙 <span>Modo Claro/Escuro</span></div>
+</header>
+
+<main>
+
+<section id="sobre" class="active">
+  <div class="card">
+    <h1>Trabalhe na MOSC</h1>
+    <p>
+      A MOSC é uma empresa digital focada em empreendedorismo, tecnologia,
+      programação e soluções modernas. Buscamos pessoas criativas,
+      ambiciosas e prontas para crescer junto com a gente.
+    </p>
+    <br><br>
+    <button onclick="go('form')">Prosseguir para candidatura</button>
+
+<br><br>
+
+  <div class="card">
+    <h1>Portal do Candidato</h1>
+    <p>
+      Acesse o portal do candidato para saber sobre os status da sua entrevista (dados, aprovação ou rejeição).
+    </p>
+    <br><br>
+    <button onclick="go('portal')">Acessar portal do candidato</button>
+
+<br><br>
+
+  </div>
+</section>
+
+<section id="form">
+  <div class="card">
+    <h1>Candidatura</h1>
+
+    <form id="formEntrevista">
+      <input required placeholder="Nome completo" id="nome">
+      <input required placeholder="CPF" id="cpf">
+      <input required placeholder="Email" id="email">
+      <input placeholder="Telefone" id="telefone">
+      <input required placeholder="Cargo desejado" id="cargo">
+      <input placeholder="Rua" id="rua">
+      <input placeholder="Número" id="numero">
+      <textarea placeholder="Por que quer trabalhar na MOSC?" id="motivo"></textarea>
+      <button class="full" type="submit">Enviar entrevista</button>
+    </form>
+  </div>
+</section>
+
+<section id="enviado">
+  <div class="card">
+    <h1>Entrevista enviada 🎉</h1>
+    <p>
+      Recebemos sua candidatura com sucesso.<br>
+      Nosso time irá analisar com atenção.
+    </p>
+    <p>
+      Você pode acompanhar o andamento pelo portal do candidato.
+    </p>
+    <br>
+    <button onclick="go('portal')">Ir para o portal do candidato</button>
+  </div>
+</section>
+
+<section id="portal">
+  <div class="card">
+    <h1>Portal do Candidato</h1>
+
+    <input id="loginNome" placeholder="Digite seu nome completo">
+    <br><br>
+    <button onclick="login()">Entrar</button>
+
+    <div id="dados" style="display:none">
+      <div class="status" id="statusTxt"></div>
+      <div class="status" id="infoTxt"></div>
+      <p style="margin-top:30px">
+        Volte mais tarde para verificar se houve atualização
+        no seu processo seletivo.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBdKHo1V9wGola1aXwugmbHSGWPmWoKwq8",
+  authDomain: "entrevista-site.firebaseapp.com",
+  projectId: "entrevista-site",
+  storageBucket: "entrevista-site.firebasestorage.app",
+  messagingSenderId: "672692445481",
+  appId: "1:672692445481:web:e93d808971b029448c9738"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const toggle = document.getElementById("toggleTheme");
+toggle.onclick = () => document.body.classList.toggle("light");
+
+window.go = id =>{
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+};
+
+document.getElementById("formEntrevista").onsubmit = async e =>{
+  e.preventDefault();
+
+  await addDoc(collection(db,"entrevistas"),{
+    nome_completo:nome.value,
+    cpf:cpf.value,
+    email:email.value,
+    telefone:telefone.value,
+    cargo_desejado:cargo.value,
+    motivo:motivo.value,
+    endereco:{
+      rua:rua.value,
+      numero:numero.value
+    },
+    status:"em análise",
+    criado_em:serverTimestamp()
+  });
+
+  go("enviado");
+};
+
+window.login = async ()=>{
+  const q = query(
+    collection(db,"entrevistas"),
+    where("nome_completo","==",loginNome.value)
+  );
+
+  const snap = await getDocs(q);
+  if(snap.empty) return;
+
+  const d = snap.docs[0].data();
+  document.getElementById("dados").style.display="block";
+
+  let txt="Em análise. Volte mais tarde para saber se foi aprovado.";
+  if(d.status==="aprovado") txt="Parabéns! Você foi aprovado 🎉";
+  if(d.status==="rejeitado") txt="Processo encerrado.";
+
+  statusTxt.innerText=txt;
+  infoTxt.innerText=`${d.cargo_desejado} • ${d.endereco.rua}, ${d.endereco.numero}`;
+};
+</script>
+
+</body>
+</html>

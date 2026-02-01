@@ -644,7 +644,7 @@ window.login = async ()=>{
 
   let txt="Em análise. Volte mais tarde para saber se foi aprovado.";
   if(d.status==="aprovado") txt="Parabéns! Você foi aprovado 🎉";
-  if(d.status==="rejeitado") txt="Processo encerrado.";
+  if(d.status==="rejeitado") txt="Sua candidatura foi rejeitada.";
 
   statusTxt.innerText=txt;
   infoTxt.innerText=`${d.cargo_desejado} • ${d.endereco.rua}, ${d.endereco.numero}`;
